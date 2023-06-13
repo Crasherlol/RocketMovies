@@ -18,7 +18,7 @@ export function Profile() {
 
             <Avatar>
                 <img 
-                src="https://github.com/rodrigorgtic.png" 
+                src="https://github.com/crasherlol.png" 
                 alt="Foto do usuário" 
                 />
 

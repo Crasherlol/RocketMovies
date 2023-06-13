@@ -32,8 +32,8 @@ export const Profile = styled(Link)`
         flex-direction: row-reverse;
 
     > img{
-        width: 56px;
-        height: 56px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
     }
     > div{
@@ -51,6 +51,7 @@ export const Profile = styled(Link)`
         strong {
             font-size: 18px;
             color: ${({theme}) => theme.COLORS.WHITE};
+            margin-left: 75px;
         }
     }
 `;

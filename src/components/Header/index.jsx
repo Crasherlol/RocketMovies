@@ -6,9 +6,9 @@ export function Header(){
                 <h1>RocketMovies</h1>
                 <Input placeholder="Procure um filme" />
                 <Profile to='/profile'>
-                <img src="https://github.com/rodrigorgtic.png" alt="Foto do Usuário"></img>
+                <img src="https://github.com/crasherlol.png" alt="Foto do Usuário"></img>
                 <div>
-                 <strong> Rodrigo Gonçalves </strong>
+                 <strong> Crasherlol </strong>
                  <a href="/">Sair</a>
                 </div>
                 </Profile>

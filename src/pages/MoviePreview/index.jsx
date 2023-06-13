@@ -14,10 +14,10 @@ export function MoviePreview(){
         <h1> Interstellar <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSLine />  </h1>
         <div class="spanWrapper">
         <img 
-        src="https://github.com/rodrigorgtic.png" 
+        src="https://github.com/crasherlol.png" 
         alt="Foto do usuário" 
         />
-        <span>Por Rodrigo Gonçalves</span>
+        <span>Por Crasherlol</span>
         <FiClock/>
         <span> 23/05/22 às 08:00</span>
          </div>
