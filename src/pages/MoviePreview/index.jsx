@@ -5,41 +5,57 @@ import {RiStarSLine, RiStarSFill} from 'react-icons/ri'
 import { Tag } from '../../components/Tag';
 import { FiClock } from 'react-icons/fi';
 import {api} from '../../services/api';
-import { useState, useEffect } from 'react';
+import { useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
 import {useAuth} from '../../hooks/auth'
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
 export function MoviePreview(){
-    const [description, setDescription] = useState("")
+    const [data, setData] = useState("")
     const {user} = useAuth()
+    const params = useParams();
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
-    
+    useEffect(() => {
+        async function fetchMovie(){
+            const response = await api.get(`/movie_notes/${params.id}`);
+            setData(response.data); 
+        }
+        fetchMovie();
+    }, [])
+        console.log(data);
     return(
         <Container>
          <Header /> 
          <div class="headerPost">
          <a href="/"> <FiArrowLeft /> Voltar</a>
-        <h1> Interstellar <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSLine />  </h1>
+        <h1> {data.title} <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSLine />  </h1>
         <div class="spanWrapper">
         <img 
         src={avatarUrl} 
         alt="Foto do usuário" 
         />
-        {
         <span>Por {user.name}</span>
-        }
         <FiClock/>
-        <span> 23/05/22 às 08:00</span>
+        <span> {data.updated_at}</span>
          </div>
          </div>
+         
+        {
+            data.tags &&
          <div class="tags">
-        <Tag title='Ficção Científica' />
-        <Tag title='Drama' />
-        <Tag title='Família' />
+     {
+        data.tags.map(tag => (
+        <Tag key={String(tag.id)} 
+        title={tag.name}
+        />
+        ))
+      }
+
         </div>
+        }
         <div class="movieText">
-            <p> </p>
+            <p> {data.description} </p>
         </div>
         </Container>
     )   
