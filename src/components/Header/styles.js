@@ -25,29 +25,47 @@ export const Container = styled.div`
 `;
 
 export const Profile = styled(Link)`
-        width: 100%;
-        padding-right: 200px;
+        width: 20%;
+        margin-right: 200px;
         display: flex;
         align-items: center;
         flex-direction: row-reverse;
 
-    > img{
+     img{
         width: 45px;
         height: 45px;
         border-radius: 50%;
     }
+    .buttonProfile{
+        width: 48px;
+        height: 48px;
+        background-color: transparent;
+        border-radius: 50%;
+        text-decoration: none;
+        border: 1px solid #0000; 
+    }
+
     > div{
         display: flex;
         flex-direction: column;
         margin-right: 9px;
         margin-top: 7px;
         line-height: 24px;
+        background-color: #0000;
 
-        >a {
+        >button {
             font-size: 14px;
+            font-weight: bold;
             color: ${({theme}) => theme.COLORS.GRAY_500};
-            margin-left: 134px;
+            background-color: transparent; 
+            width: 28px;
+            height: 17px;
+            border: 1px solid #0000; 
+            text-decoration: none;
+            margin-left: 160px;
+
         }
+        
         strong {
             font-size: 18px;
             color: ${({theme}) => theme.COLORS.WHITE};

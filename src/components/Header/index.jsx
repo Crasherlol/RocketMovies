@@ -1,15 +1,23 @@
 import {Container, Profile} from './styles'
-import {Input} from '../../components/Input'
+import {useAuth} from '../../hooks/auth'
+import {api} from '../../services/api'
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
+import {Link} from 'react-router-dom';
+
+
 export function Header(){
+    const {signOut, user} = useAuth()
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
+
+   
         return (
             <Container>
                 <h1>RocketMovies</h1>
-                <Input placeholder="Procure um filme" />
-                <Profile to='/profile'>
-                <img src="https://github.com/crasherlol.png" alt="Foto do Usuário"></img>
+                <Profile>
+                <Link to ='/profile' > <button class="buttonProfile"> <img src={avatarUrl} alt="Foto do Usuário"></img> </button> </Link>
                 <div>
-                 <strong> Crasherlol </strong>
-                 <a href="/">Sair</a>
+                 <strong> {user.name} </strong>
+                 <button onClick={signOut}>Sair</button>
                 </div>
                 </Profile>
             </Container>

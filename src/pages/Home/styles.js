@@ -11,6 +11,18 @@ export const Container = styled.div`
     "header header"
     "brand brand"
     "content content";
+
+    .inputArea{
+        grid-area: header;
+        display: flex;
+        width: 40%;
+        display: flex;
+        justify-self: center;
+        align-items: center;
+
+    }
+
+   
 `;
 
 
@@ -26,7 +38,6 @@ export const Brand = styled.div`
     >a {
         width: 206px;
     }
-    
 `;
 
 export const Content = styled(Link)`

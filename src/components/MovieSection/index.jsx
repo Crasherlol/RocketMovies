@@ -1,14 +1,18 @@
 import {Container} from './styles';
-import {RiStarSLine, RiStarSFill} from 'react-icons/ri'
+import {FaStar} from 'react-icons/fa'
 import { Tag } from '../Tag';
-import {Link} from 'react-router-dom';
 
 export function MovieSection({data, ...rest}){
+    
+
     return (
-        <Container {...rest} to='/moviePreview'>
+        <Container {...rest}>
         <h1>{data.title}</h1>
         <div class="ratio">
-        <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSLine />
+            {[...Array(5)].map(star => {
+               return <FaStar size={15} />
+            })}
+        
         </div>
         <span>{data.description}</span>
         {
