@@ -6,8 +6,8 @@ export const Container = styled.div`
     svg, a{
         color: ${({theme}) => theme.COLORS.PINK};
         }
+        
     
-
     .headerPost{
         display: flex;
         flex-direction: column;
@@ -25,6 +25,9 @@ export const Container = styled.div`
         .ratio {
             display: flex;
             flex-direction: row;
+            align-items: center;
+            column-gap: 15px;;
+            
         }
     }
     .tags{

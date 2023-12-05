@@ -40,7 +40,7 @@ export const Brand = styled.div`
     }
 `;
 
-export const Content = styled(Link)`
+export const Content = styled.div`
     max-height: 630px;
     width: 1450px;
     overflow-y: scroll;

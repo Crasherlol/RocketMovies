@@ -1,7 +1,7 @@
 import {Container} from './styles';
 import {Header} from '../../components/Header';
 import {FiArrowLeft} from 'react-icons/fi';
-import {RiStarSLine, RiStarSFill} from 'react-icons/ri'
+import {FaStar} from 'react-icons/fa'
 import { Tag } from '../../components/Tag';
 import { FiClock } from 'react-icons/fi';
 import {api} from '../../services/api';
@@ -9,6 +9,7 @@ import { useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import {useAuth} from '../../hooks/auth'
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
+
 
 export function MoviePreview(){
     const [data, setData] = useState("")
@@ -23,13 +24,18 @@ export function MoviePreview(){
         }
         fetchMovie();
     }, [])
-        console.log(data);
     return(
         <Container>
          <Header /> 
          <div class="headerPost">
          <a href="/"> <FiArrowLeft /> Voltar</a>
-        <h1> {data.title} <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSFill /> <RiStarSLine />  </h1>
+         
+         <div class="ratio">
+         <h1> {data.title} </h1>
+            {[...Array(data.rating)].map(star => {
+               return <FaStar size={20} />
+            })}
+        </div>
         <div class="spanWrapper">
         <img 
         src={avatarUrl} 
@@ -57,6 +63,7 @@ export function MoviePreview(){
         <div class="movieText">
             <p> {data.description} </p>
         </div>
+    
         </Container>
     )   
 }
