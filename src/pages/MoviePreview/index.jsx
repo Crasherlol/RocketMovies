@@ -2,12 +2,14 @@ import {Container} from './styles';
 import {Header} from '../../components/Header';
 import {FiArrowLeft} from 'react-icons/fi';
 import {FaStar} from 'react-icons/fa'
+import { FiDelete } from "react-icons/fi";
 import { Tag } from '../../components/Tag';
 import { FiClock } from 'react-icons/fi';
 import {api} from '../../services/api';
 import { useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import {useAuth} from '../../hooks/auth'
+import { useNavigate } from 'react-router-dom';
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
 
@@ -16,6 +18,7 @@ export function MoviePreview(){
     const {user} = useAuth()
     const params = useParams();
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function fetchMovie(){
@@ -24,6 +27,15 @@ export function MoviePreview(){
         }
         fetchMovie();
     }, [])
+
+    async function handleRemove (){
+        const confirm = window.confirm("Deseja realmente remover o filme?")
+        if (confirm) {
+            await api.delete(`/movie_notes/${params.id}`);
+            navigate("/")
+        }
+       
+    }
     return(
         <Container>
          <Header /> 
@@ -35,6 +47,7 @@ export function MoviePreview(){
             {[...Array(data.rating)].map(star => {
                return <FaStar size={20} />
             })}
+            <button className="deleteButton" onClick={handleRemove}> <FiDelete /> </button>
         </div>
         <div class="spanWrapper">
         <img 
@@ -62,7 +75,10 @@ export function MoviePreview(){
         }
         <div class="movieText">
             <p> {data.description} </p>
+            
         </div>
+
+        
     
         </Container>
     )   

@@ -1,6 +1,7 @@
 import {Container} from './styles';
 import {FaStar} from 'react-icons/fa'
 import { Tag } from '../Tag';
+import { api } from '../../services/api';
 export function MovieSection({data, ...rest}){
 
     return (
@@ -21,6 +22,7 @@ export function MovieSection({data, ...rest}){
                 }
             </footer>
         }
+        
         </Container>
     );
 

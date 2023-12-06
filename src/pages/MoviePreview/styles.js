@@ -70,5 +70,13 @@ export const Container = styled.div`
             color: rgba(244, 237, 232, 1);
         }
     }
-    
+    .deleteButton {
+        color: ${({theme}) => theme.COLORS.PINK};
+        background: transparent;
+        border: none;
+        text-decoration: none;
+        display: flex;
+        margin-left: 30px;
+        
+    }
 `;

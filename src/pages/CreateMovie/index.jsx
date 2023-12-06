@@ -26,6 +26,13 @@ export function CreateMovie(){
     function handleRemoveTag(deleted){
         setTags (prevState => prevState.filter(tag => tag !== deleted) )
     }
+    function handleRemoveMovie (){
+        const confirm = window.confirm("Deseja realmente remover o filme?")
+
+        if (confirm){
+           return navigate("/")
+        }
+    }
 
     async function handleNewNote(){
         if (newTag){
@@ -39,6 +46,7 @@ export function CreateMovie(){
             return alert ("A sua avaliação deve ser um numero");
         
     }
+
         await api.post("movie_notes", {
             title,
             description,
@@ -102,7 +110,7 @@ export function CreateMovie(){
               
                 </Section>
                 <div class="buttons">
-                    <Button title="Excluir Filme" id="firstChild" />
+                    <Button title="Excluir Filme" id="firstChild" onClick={handleRemoveMovie} />
                     <Button title="Salvar Alterações" onClick={handleNewNote}/>
                 </div>
 
