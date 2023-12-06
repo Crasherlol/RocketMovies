@@ -48,8 +48,8 @@ export const Profile = styled.div`
     > div{
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        margin-top: 7px;
+        align-items: end;
+        margin-right: 16px;
         line-height: 24px;
         background-color: #0000;
 
@@ -69,7 +69,7 @@ export const Profile = styled.div`
         strong {
             font-size: 18px;
             color: ${({theme}) => theme.COLORS.WHITE};
-            margin-left: 70px;
+            margin-left: 20px;
             
         }
     }
