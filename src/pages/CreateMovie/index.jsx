@@ -36,7 +36,7 @@ export function CreateMovie(){
 
     async function handleNewNote(){
         if (newTag){
-            return alert("Você deixou uma tag no campo para adicionar, mas não adicionou.");
+            return alert("Você deixou uma tag no campo para adicionar, porém não clicou no botão de adicionar.");
         }
         if (rating > 5){
             return alert ("Você deve digitar um numero entre 1 e 5")
